@@ -1,26 +1,22 @@
-# Проект: Турнирная Сетка
-# Автор: Икбол Аллахунов 
+# Project: Tournament Bracket  
+# Author: Ikbol Allakhunov  
 
-## Описание
-Проект представляет собой реляционную базу данных для хранения информации о турнирах, их участниках, матчах и результатах.  
-База данных реализует многотурнирную систему с поддержкой раундов, регистрации участников и фиксации результатов матчей.  
-Реализована на **PostgreSQL** и поддерживает автоматическую визуализацию ER-диаграммы в DBeaver или pgAdmin.
+## Description  
+This project is a relational database designed to store information about tournaments, participants, matches, and results.  
+The database implements a multi-tournament system with support for rounds, participant registration, and match result recording.  
+It is built with **PostgreSQL** and supports automatic ER diagram visualization in DBeaver or pgAdmin.  
 
-## Используемая СУБД
-- PostgreSQL 15 и выше  
-- Совместимо с DBeaver, pgAdmin и psql
+## Database Structure  
+| Table | Purpose |
+|--------|----------|
+| `tournaments` | List of all tournaments |
+| `participants` | Participants (players or teams) |
+| `tournament_participants` | Registration of participants in specific tournaments |
+| `rounds` | Tournament rounds (stages) |
+| `matches` | Matches between participants |
+| `match_results` | Match results |
 
-## Структура базы данных
-| Таблица | Назначение |
-|----------|-------------|
-| `tournaments` | Список всех турниров |
-| `participants` | Участники (игроки или команды) |
-| `tournament_participants` | Регистрация участников в конкретных турнирах |
-| `rounds` | Раунды (этапы турниров) |
-| `matches` | Матчи между участниками |
-| `match_results` | Результаты матчей |
-
-## Схема связей
+## Relationship Schema  
 ```
 tournaments ───< rounds ───< matches ───< match_results  
       │                         │  
@@ -28,13 +24,3 @@ tournaments ───< rounds ───< matches ───< match_results
                                      │  
                                      └──< match_results
 ```
-
-## Структура проекта
-| Файл | Назначение |
-|------|-------------|
-| `database_schema.sql` | Определение структуры базы данных |
-| `insert_data.sql` | Тестовые данные для демонстрации |
-| `queries.sql` | Полезные SQL-запросы |
-| `transactions.sql` | Примеры транзакций |
-| `README.md` | Документация проекта |
-
